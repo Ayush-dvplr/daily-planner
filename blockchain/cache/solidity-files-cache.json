@@ -1,0 +1,40 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "D:\\year2024\\metacrafter\\eth-intermidiate-assignment-project-2\\blockchain\\contracts\\DailyPlanner.sol": {
+      "lastModificationDate": 1719075354806,
+      "contentHash": "44b830f166a63c3ed8a0d5cd4c3704a8",
+      "sourceName": "contracts/DailyPlanner.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.13"
+      ],
+      "artifacts": [
+        "DailyPlanner"
+      ]
+    }
+  }
+}
