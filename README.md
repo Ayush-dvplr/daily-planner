@@ -14,8 +14,6 @@ We are also going to use react and web3 to connect our blockchain to frontend.
 ## Usage/Examples
 
 ```solidity
-import Component from 'my-project'
-
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.13;
 
