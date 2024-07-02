@@ -20,14 +20,14 @@ const TaskList = () => {
         const tasks = await getTasks(contract, accounts[0]);
         setTasks(tasks);
       } catch (error) {
-        setError(error.message);
+        setError("kindly Login to metamask !");
       }
     };
     init();
   }, []);
 
   if (error) {
-    return <div className="container">Error: {error}</div>;
+    return <div className="container">Welcome : {error}</div>;
   }
 
   return (

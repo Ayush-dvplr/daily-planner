@@ -4,11 +4,11 @@ import DailyPlanner from "./DailyPlanner.json";
 // NOTE:
 // if http://localhost:8545 not working then try this http://127.0.0.1:8545/
 
-const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3"; 
+const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
 
 async function connectWeb3() {
-  const provider = new Web3.providers.HttpProvider("http://127.0.0.1:8545/");
-  const web3 = new Web3(provider);
+  await window.ethereum.request({ method: "eth_requestAccounts" });
+  const web3 = new Web3(window.ethereum);
   const instance = new web3.eth.Contract(DailyPlanner.abi, contractAddress);
   const accounts = await web3.eth.getAccounts();
   console.log(instance, accounts);
