@@ -7,16 +7,12 @@ import { formatDate } from "../utils";
 
 const TaskList = () => {
   const [tasks, setTasks] = useState([]);
-  const [account, setAccount] = useState(null);
-  const [contract, setContract] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const init = async () => {
       try {
         const { accounts, contract } = await connectWeb3();
-        setAccount(accounts[0]);
-        setContract(contract);
         const tasks = await getTasks(contract, accounts[0]);
         setTasks(tasks);
       } catch (error) {
