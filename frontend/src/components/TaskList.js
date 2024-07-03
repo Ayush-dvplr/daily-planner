@@ -3,7 +3,6 @@ import { connectWeb3, getTasks } from "../contractFunctions";
 import { Link } from "react-router-dom";
 import "../App.css";
 import successIcon from "./success-green-check-mark-icon.png"; // Import the image
-import { formatDate } from "../utils";
 
 const TaskList = () => {
   const [tasks, setTasks] = useState([]);
@@ -16,6 +15,7 @@ const TaskList = () => {
         const tasks = await getTasks(contract, accounts[0]);
         setTasks(tasks);
       } catch (error) {
+        console.log(error.message);
         setError("kindly Login to metamask !");
       }
     };
@@ -37,7 +37,12 @@ const TaskList = () => {
           <li key={index} className="task-item">
             <div className="task-details">
               <p>Task: {task.task}</p>
-              <p>Deadline: {formatDate(task.deadline.toString())}</p>
+              <p>
+                Deadline:{" "}
+                {new Date(task.deadline.toString() * 1000).toLocaleString(
+                  "en-GB"
+                )}
+              </p>
               <p>Completed: {task.isCompleted ? "Yes" : "No"}</p>
               {!task.isCompleted && (
                 <Link to={`/edit/${index}`} className="link">

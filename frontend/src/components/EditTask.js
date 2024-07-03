@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { formatDate } from "../utils";
 import {
   connectWeb3,
   updateTaskStatus,
@@ -47,7 +46,8 @@ const EditTask = () => {
 
   const handleUpdateDeadline = async () => {
     try {
-      await updateTaskDeadline(contract, account, index, newDeadline);
+      const timestamp = new Date(newDeadline).getTime() / 1000;
+      await updateTaskDeadline(contract, account, index, timestamp);
       navigate("/");
     } catch (error) {
       setError(error.message);
@@ -67,14 +67,21 @@ const EditTask = () => {
       )}
       <h1>Edit Task</h1>
       <p>Task: {task.task}</p>
-      <p>Deadline: {task.task ? formatDate("" + task.deadline) : ""}</p>
+      <p>
+        Deadline:{" "}
+        {new Date(task.deadline.toString() * 1000).toLocaleString("en-GB")}
+      </p>
       <p>Completed: {task.isCompleted ? "Yes" : "No"}</p>
-      <input
-        type="text"
-        placeholder="New Deadline"
-        value={newDeadline}
-        onChange={(e) => setNewDeadline(e.target.value)}
-      />
+      <p>Update deadline :</p>
+      <div style={{ display: "flex", width: "100%" }}>
+        <input
+          type="datetime-local"
+          placeholder="New Deadline"
+          value={newDeadline}
+          onChange={(e) => setNewDeadline(e.target.value)}
+          required
+        />
+      </div>
       <button onClick={handleUpdateDeadline}>Update Deadline</button>
     </div>
   );

@@ -26,7 +26,10 @@ const CreateTask = () => {
 
   const handleAddTask = async () => {
     try {
-      await addTask(contract, account, task, deadline);
+      console.log({ deadline });
+      const timestamp = new Date(deadline).getTime() / 1000;
+      console.log(timestamp);
+      await addTask(contract, account, task, timestamp);
       navigate("/");
     } catch (error) {
       setError(error.message);
@@ -46,13 +49,18 @@ const CreateTask = () => {
         value={task}
         onChange={(e) => setTask(e.target.value)}
       />
-      <input
-        type="text"
-        placeholder="Deadline (ddmmyyyy)"
-        value={deadline}
-        maxLength={8}
-        onChange={(e) => setDeadline(e.target.value)}
-      />
+      <div
+        style={{ display: "flex", msFlexDirection: "row", marginTop: "1rem" }}
+      >
+        <p>Enter deadline: &nbsp; &nbsp; &nbsp;</p>
+        <input
+          type="datetime-local"
+          placeholder="deadline"
+          value={deadline}
+          onChange={(e) => setDeadline(e.target.value)}
+          required
+        />
+      </div>
       <button onClick={handleAddTask}>Add Task</button>
     </div>
   );
