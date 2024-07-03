@@ -69,7 +69,9 @@ const EditTask = () => {
       <p>Task: {task.task}</p>
       <p>
         Deadline:{" "}
-        {new Date(task.deadline.toString() * 1000).toLocaleString("en-GB")}
+        {task.deadline
+          ? new Date(task.deadline.toString() * 1000).toLocaleString("en-GB")
+          : ""}
       </p>
       <p>Completed: {task.isCompleted ? "Yes" : "No"}</p>
       <p>Update deadline :</p>
