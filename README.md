@@ -129,11 +129,11 @@ Start frontend from the terminalin frontend directory
 ```
 ## Screenshots
 
-![App Screenshot](https://res.cloudinary.com/dsprifizw/image/upload/v1719110064/eth-home.jpg)
+![App Screenshot](https://res.cloudinary.com/dsprifizw/image/upload/v1719985348/homev2.png)
 
-![App Screenshot](https://res.cloudinary.com/dsprifizw/image/upload/v1719110075/eth-edit.jpg)
+![App Screenshot](https://res.cloudinary.com/dsprifizw/image/upload/v1719985466/createv2.png)
 
-![App Screenshot](https://res.cloudinary.com/dsprifizw/image/upload/v1719110082/eth-create.jpg)
+![App Screenshot](https://res.cloudinary.com/dsprifizw/image/upload/v1719985686/editv2.png)
 
 
 ## Lessons Learned
